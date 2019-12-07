@@ -1,13 +1,17 @@
-NumEntries = int(input())
+entry = input()
+entry = input()
 PhoneBook = {}
 
-for i in range(NumEntries * 2):
-    entry = input()
+while entry != None:
     split_entry = entry.split()
-    if len(split_entry) ==2:
+    if len(split_entry) > 1:
         PhoneBook[split_entry[0]] = split_entry[1]
-    if len(split_entry) == 1:
-        try:
+    else:
+        if split_entry[0] in PhoneBook:
             print("{}={}".format(split_entry[0],PhoneBook[split_entry[0]]))
-        except:
+        else:
             print("Not found")
+    try:
+        entry = input()
+    except:
+        entry = None
